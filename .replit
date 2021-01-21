@@ -1,2 +1,2 @@
-language = "cpp"
-run = "gcc -o src/analy src/analy.cpp && src/analy"
+language = "python"
+run = "python src/app.py"
