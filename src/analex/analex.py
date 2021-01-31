@@ -20,7 +20,7 @@ if(len(sys.argv) == 2):
 
     for line in file:
       if(line[0] != "#"):
-        thisArr = toArr(line)     
+        thisArr = toArr(line)   
         if(isLine(thisArr)):
           for i in thisArr:
             flag = False
