@@ -1,8 +1,16 @@
 IDS
-factorial, ID01
-VarX, ID02
-VarY, ID03
-Num, ID04
+factorial, ID02
+VarX, ID03
+VarY, ID04
+Num, ID05
+Num, ID05
+VarY, ID05
+VarY, ID05
+VarX, ID05
+VarX, ID05
+VarY, ID05
+Num, ID05
+VarX, ID05
 
 TXT
 "Factorial de ", TX01
@@ -11,3 +19,4 @@ TXT
 VAL
 1, 1
 0, 0
+1, 1

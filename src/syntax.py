@@ -1,7 +1,5 @@
 import re
 
-file = open('debug.txt', 'w+')
-
 syn = {
   'RES': ['PROGRAMA', 'FINPROG', 'SI', 'ENTONCES', 'SINO', 'FINSI', 'REPITE', 'VECES', 'FINREP', 'IMPRIME', 'LEE'],
   'REL': ['>', '<', '==', '='],
@@ -60,7 +58,6 @@ def isARI(word):
 
 def isLine(arr):
   flag = True
-  file.write(' '.join(arr) + '\n')
   for i in arr:
     # Check if it is any of the reserved words
     if(not(isAny(i))):
