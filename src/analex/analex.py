@@ -53,8 +53,8 @@ if(len(sys.argv) == 2):
                 flag = False
               else:
                 pidArr.append([[i],['ID{0:0=2d}'.format(cID)]])
-                fileLex.write('[id] ID' + '{0:0=2d}'.format(cID) + '\n')
-                cID += 1
+              fileLex.write('[id] ID' + '{0:0=2d}'.format(cID) + '\n')
+              cID += 1
               idArr.append([[i],['ID{0:0=2d}'.format(cID)]])
 
             # Checa si la palabra es texto
@@ -72,7 +72,7 @@ if(len(sys.argv) == 2):
                 flag = False
               else:
                 pvalArr.append([[i],[octalToDecimal(i)]])
-                fileLex.write('[val]' + '\n')
+              fileLex.write('[val]' + '\n')
               valArr.append([[i],[octalToDecimal(i)]])
         else:
           print('ERROR')
@@ -84,7 +84,7 @@ if(len(sys.argv) == 2):
       fileSim.write('{}, {}\n'.format(i[0][0], i[1][0]))
 
     fileSim.write('\nTXT\n')
-    for i in ptxtArr:
+    for i in txtArr:
       fileSim.write('{}, {}\n'.format(i[0][0], i[1][0]))
 
     fileSim.write('\nVAL\n')
