@@ -7,17 +7,250 @@
   <img src="https://raw.githubusercontent.com/imreyesjorge/TC-Analex/master/assets/header.png">
 </p>
 
-> Describe correctamente la operación del programa e incluye casos de uso
+- [Mio](#)
+  - [Funcionamiento](#functionamiento)
+  - [Casos de uso](#casos-de-uso)
+    - [Caso 1](#caso-1)
+    - [Caso 2](#caso-2)
+    - [Caso 3](#caso-3)
+    - [Caso 4](#caso-4)
+  - [Integrantes](#integrantes)
+
 
 ### Funcionamiento
 
-El analizador lexico agarra el archivo factorial .mio y produce 8 archivos temporales, uno que es el factorial.lex el cual contiene todos los tokens y el otro es el factorial.sim que es la tabla de simbolos (los cuales son 3 tablas, una de ID, una de texto y una de valores).
+El **Analizador Lexico** toma el archivo `factorial.mio` (o cualquier otro programa `.mio`) y produce 2 archivos temporales, uno que es el factorial.lex el cual contiene todos los tokens, otro es el factorial.sim el cual contiene la tabla de simbolos (los cuales consisten de tres tablas, una de **ID**, una de **texto** y una de **valores**).
 
 El analizador sintatico toma el .lex y checa que el programa se ajuste a la gramatica. Lo cual imprime **compilación exitosa** **compilación fallida**
 
+Se pueden correr diferentes programas usando el siguiente comando:
+
+```sh
+python src/app.py [nombreDelPrograma.mio]
+```
+
+Entre las consideraciones que se deben tomar en cuenta, al final de cada programa la última linea debe estar vacia para que el programa funcione.
+
 ### Casos de uso
 
+##### Caso 1
 
+```py
+# Programa que calcula el factorial de un número
+PROGRAMA factorial
+# VarX acumula los productos por iteración
+VarX = 1
+# VarY contiene el iterador del factor
+VarY = 0
+LEE Num
+# Aplica Num! = 1 * 2 * 3 * ... * Num
+REPITE Num VECES
+VarY = VarY + 1
+VarX = VarX * VarY
+FINREP
+IMPRIME "Factorial de "
+IMPRIME Num
+IMPRIME " es "
+IMPRIME VarX
+FINPROG
+``` 
+Esta es nuestra salida:
+
+```sh
+PROGRAMA
+[id] ID01
+[id] ID02
+=
+[val]
+[id] ID03
+=
+[val]
+LEE
+[id] ID04
+REPITE
+[id] ID05
+VECES
+[id] ID06
+=
+[id] ID07
+[op_ar]
+[val]
+[id] ID08
+=
+[id] ID09
+[op_ar]
+[id] ID10
+FINREP
+IMPRIME
+[text] TX01
+SI
+[id] ID11
+<
+[val]
+ENTONCES
+IMPRIME
+[id] ID12
+SINO
+IMPRIME
+[text] TX02
+FINSI
+IMPRIME
+[id] ID13
+FINPROG
+
+['PROGRAMA']
+['#']
+
+['[id]', 'ID01']
+['#', 'FINPROG', 'SENTS', '[id]']
+
+['[id]', 'ID02']
+['#', 'FINPROG', 'SENTS']
+
+['=']
+['#', 'FINPROG', 'ELEM', '=']
+
+['[val]']
+['#', 'FINPROG', 'ELEM']
+
+['[id]', 'ID03']
+['#', 'FINPROG', 'SENTS']
+
+['=']
+['#', 'FINPROG', 'ELEM', '=']
+
+['[val]']
+['#', 'FINPROG', 'ELEM']
+
+['LEE']
+['#', 'FINPROG', 'SENTS']
+
+['[id]', 'ID04']
+['#', 'FINPROG', 'LEE']
+
+['REPITE']
+['#', 'FINPROG', 'SENTS']
+
+['[id]', 'ID05']
+['#', 'FINPROG', 'FINREP', 'SENTS', 'VECES', 'ELEM']
+
+['VECES']
+['#', 'FINPROG', 'FINREP', 'SENTS', 'VECES']
+
+['[id]', 'ID06']
+['#', 'FINPROG', 'FINREP', 'SENTS']
+
+['=']
+['#', 'FINPROG', 'FINREP', 'ELEM', '=']
+
+['[id]', 'ID07']
+['#', 'FINPROG', 'FINREP', 'ELEM']
+
+['[op_ar]']
+['#', 'FINPROG', 'FINREP']
+
+['[val]']
+['#', 'FINPROG', 'FINREP', 'ELEM']
+
+['[id]', 'ID08']
+['#', 'FINPROG', 'FINREP', 'SENTS']
+
+['=']
+['#', 'FINPROG', 'FINREP', 'ELEM', '=']
+
+['[id]', 'ID09']
+['#', 'FINPROG', 'FINREP', 'ELEM']
+
+['[op_ar]']
+['#', 'FINPROG', 'FINREP']
+
+['[id]', 'ID10']
+['#', 'FINPROG', 'FINREP', 'ELEM']
+
+['FINREP']
+['#', 'FINPROG', 'FINREP']
+
+['IMPRIME']
+['#', 'FINPROG', 'SENTS']
+
+['[text]', 'TX01']
+['#', 'FINPROG', 'IMPRIME']
+
+['SI']
+['#', 'FINPROG', 'SENTS']
+
+['[id]', 'ID11']
+['#', 'FINPROG', 'FINSI', 'SENTS', 'ENTONCES', 'COMPARA']
+
+['<']
+['#', 'FINPROG', 'FINSI', 'SENTS', 'ENTONCES', '[op_rel]']
+
+['[val]']
+['#', 'FINPROG', 'FINSI', 'SENTS', 'ENTONCES', 'ELEM']
+
+['ENTONCES']
+['#', 'FINPROG', 'FINSI', 'SENTS', 'ENTONCES']
+
+['IMPRIME']
+['#', 'FINPROG', 'FINSI', 'SENTS']
+
+['[id]', 'ID12']
+['#', 'FINPROG', 'FINSI', 'IMPRIME']
+
+['SINO']
+['#', 'FINPROG', 'FINSI']
+
+['IMPRIME']
+['#', 'FINPROG', 'FINSI', 'SENTS']
+
+['[text]', 'TX02']
+['#', 'FINPROG', 'FINSI', 'IMPRIME']
+
+['FINSI']
+['#', 'FINPROG', 'FINSI']
+
+['IMPRIME']
+['#', 'FINPROG', 'SENTS']
+
+['[id]', 'ID13']
+['#', 'FINPROG', 'IMPRIME']
+
+['FINPROG']
+['#', 'FINPROG']
+
+Compilación exitosa
+``` 
+
+Esta es nuestra salida:
+
+##### Caso 2:
+
+```py
+# Programa que calcula el factorial de un número
+PROGRAMA factorial
+# VarX acumula los productos por iteración
+VarX = 1
+# VarY contiene el iterador del factor
+VarY = 0
+LEE Num
+# Aplica Num! = 1 * 2 * 3 * ... * Num
+REPITE Num VECES
+VarY = VarY + 1
+VarX = VarX * VarY
+FINREP
+IMPRIME "Factorial de "
+SI Num < 4 ENTONCES
+IMPRIME Num
+SINO
+IMPRIME " es "
+FINSI
+IMPRIME VarX
+FINPROG
+``` 
+
+##### Caso 3
+
+##### Caso 4
 
 ### Integrantes
 

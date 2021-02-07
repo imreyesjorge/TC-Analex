@@ -90,7 +90,7 @@ for line in initialStack:
       flagOP_REL=True
       push('[op_rel]')
       continue
-    elif inspect()=='[op_rel]' and '<' in line and flagSI and flagOP_REL:    
+    elif inspect()=='[op_rel]' and '>' in line and flagSI and flagOP_REL:    
       flagOP_REL=False
       pop()
       push('ELEM')      
@@ -100,7 +100,7 @@ for line in initialStack:
       break
 
   #Controlador de op_ar
-  elif flagOP_AR and '[op_ar]' in line and flagREP and flagPROG:
+  elif (flagOP_AR and '[op_ar]' in line) or (flagOP_AR and '[op_ar]' in line and flagREP and flagPROG):
     push('ELEM')
     continue
 

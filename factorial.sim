@@ -1,14 +1,13 @@
 IDS
-factorial, ID01
-VarX, ID02
-VarY, ID03
-Num, ID04
+otilio, ID01
+VarExam, ID02
+VarTarea, ID03
+VarCalif, ID04
 
 TXT
-"Factorial de ", TX01
-" es ", TX02
+"pasaste", TX01
+"reprobaste", TX02
 
 VAL
-1, 1
-0, 0
-4, 4
+2, 2
+6, 6
