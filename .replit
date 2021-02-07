@@ -1,2 +1,2 @@
 language = "python"
-run = "python src/app.py factorial.mio"
+run = "python src/app.py factorial.mio" 
