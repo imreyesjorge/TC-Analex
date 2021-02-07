@@ -3,6 +3,10 @@
 <b>🗺 Un lenguaje de programación simple</b>
 </div>
 
+<br>
+<br>
+<br>
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/imreyesjorge/TC-Analex/master/assets/header.png">
 </p>
