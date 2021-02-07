@@ -11,8 +11,10 @@ VarY = VarY + 1
 VarX = VarX * VarY
 FINREP
 IMPRIME "Factorial de "
+SI Num < 4 ENTONCES
 IMPRIME Num
+SINO
 IMPRIME " es "
+FINSI
 IMPRIME VarX
 FINPROG
-

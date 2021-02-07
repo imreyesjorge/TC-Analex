@@ -22,8 +22,9 @@ def size():
 #Checar siguiente linea
 def checkNextLine(line):
   next = initialStack.index(line)+1  
-  if '[id]' in initialStack[next] or 'SI' in initialStack[next] or 'REPITE' in initialStack[next] or 'IMPRIME' in initialStack[next] or 'LEE' in initialStack[next]:
-    push('SENTS')
+  if not(next >= len(initialStack)):
+    if '[id]' in initialStack[next] or 'SI' in initialStack[next] or 'REPITE' in initialStack[next] or 'IMPRIME' in initialStack[next] or 'LEE' in initialStack[next]:
+      push('SENTS')
 
   
 flagPROG=False
@@ -123,7 +124,6 @@ for line in initialStack:
 
   #Variable SENT 
   elif inspect()=='SENT' or flagID or flagSI or flagREP or flagIMP or flagLEE:
-    print(line)
     if ('=' in line and inspect()=='=' and flagID and flagPROG) or flagID and inspect()=='SENT' and not(flagIMP):
       pop()      
       flagID=False
@@ -250,4 +250,5 @@ for line in initialStack:
 if isEmpty() and not(flagError):
   print('Compilación exitosa')
 else:
+  print(actualStack)
   print('Compilacion erronea')
