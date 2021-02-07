@@ -3,17 +3,18 @@ PROGRAMA
 [id] ID02
 =
 [val]
+REPITE
+[val]
+VECES
 [id] ID03
 =
-[val]
 [id] ID04
-=
-[id] ID05
 [op_ar]
-[id] ID06
+[val]
+FINREP
 SI
-[id] ID07
->
+[id] ID05
+==
 [val]
 ENTONCES
 IMPRIME

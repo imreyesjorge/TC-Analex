@@ -21,11 +21,11 @@ def size():
 
 #Checar siguiente linea
 def checkNextLine(line):
-  next = initialStack.index(line)+1  
+  next = initialStack.index(line)+1
   if not(next >= len(initialStack)):
     if '[id]' in initialStack[next] or 'SI' in initialStack[next] or 'REPITE' in initialStack[next] or 'IMPRIME' in initialStack[next] or 'LEE' in initialStack[next]:
+      print(initialStack[next])
       push('SENTS')
-
   
 flagPROG=False
 flagID=False
@@ -90,7 +90,7 @@ for line in initialStack:
       flagOP_REL=True
       push('[op_rel]')
       continue
-    elif inspect()=='[op_rel]' and '>' in line and flagSI and flagOP_REL:    
+    elif inspect()=='[op_rel]' and '<' in line and flagSI and flagOP_REL:    
       flagOP_REL=False
       pop()
       push('ELEM')      
@@ -109,8 +109,8 @@ for line in initialStack:
     if '[val]' in line or '[id]' in line:
       pop()
       if not(flagSI):
-        checkNextLine(line)
-      next = cont        
+        checkNextLine(line)      
+      next = cont
       if '[op_ar]' in initialStack[next] and flagPROG:   
         flagOP_AR=True
         continue

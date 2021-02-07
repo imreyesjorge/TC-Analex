@@ -1,13 +1,11 @@
 IDS
-otilio, ID01
-VarExam, ID02
-VarTarea, ID03
-VarCalif, ID04
+Contador, ID01
+VarCont, ID02
 
 TXT
-"pasaste", TX01
-"reprobaste", TX02
+"Es igual a 10", TX01
+"No sabes contar", TX02
 
 VAL
-2, 2
-6, 6
+1, 1
+10, 8
